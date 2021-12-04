@@ -30,14 +30,10 @@
                 <br>
                 Price: {{'{:.2f}'.format(item.price * item.quantity)}}
                 <br> 
-                {% if item.bought %}
-                    Bought: <span>&#9989;</span>
-                {% else %}
-                    Bought: <span>&#10060;</span>
-                {% endif %}
+                Bought: <span>&#9989;</span>
             </p>
-        {% endif %}
         </div>
+        {% endif %}
         {% endfor %}
 
         <div id = "add_item_form">
