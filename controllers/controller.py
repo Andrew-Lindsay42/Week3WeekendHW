@@ -1,10 +1,10 @@
 from app import app
 from flask import render_template, request, redirect
-from models.shopping_list import shopping_list, add_new_item, total_cost, Item
+from models.shopping_list import shopping_list, add_new_item, total_cost, total_items, Item
 
 @app.route('/list')
 def index():
-    return render_template('index.html', title='All items', shopping_list=shopping_list, total_cost = total_cost(shopping_list))
+    return render_template('index.html', title='All items', shopping_list=shopping_list, total_cost = total_cost(shopping_list), total_items = total_items(shopping_list))
 
 @app.route('/list', methods = ['POST'])
 def add_item():
