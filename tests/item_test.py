@@ -19,4 +19,4 @@ class TestItem(unittest.TestCase):
         self.assertEqual(False, self.item.bought)
 
     def test_item_is_bought_not_true(self):
-        self.assertFalse(True, self.item.bought)
+        self.assertNotEqual(True, self.item.bought)
