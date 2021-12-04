@@ -16,7 +16,7 @@ def add_item():
     else:
         bought = False
     new_item = Item(name, price, quantity, bought)
-    shopping_list.add_new_item(new_item)
+    add_new_item(new_item)
     return render_template('index.html', title='All items', shopping_list=shopping_list)
 
 @app.route('/list/bought', methods = ['POST'])
