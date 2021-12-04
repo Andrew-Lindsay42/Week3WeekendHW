@@ -22,6 +22,7 @@
         </div>
     </aside>
         {% for item in shopping_list %}
+        {% if not item.bought %}
         <div id = 'item'>
             <h3>{{item.name}}:</h3>
             <p>
@@ -35,6 +36,7 @@
                     Bought: <span>&#10060;</span>
                 {% endif %}
             </p>
+        {% endif %}
         </div>
         {% endfor %}
 
