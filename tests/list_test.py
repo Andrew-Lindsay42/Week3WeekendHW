@@ -1,13 +1,13 @@
 import unittest
 
 from models.item import Item
-from models.shopping_list import add_new_item, total_cost
+from models.shopping_list import add_new_item, total_cost, total_items
 
 class TestList(unittest.TestCase):
     def setUp(self):
         item_1 = Item('Apple', 1.0, 2, False)
         item_2 = Item('Orange', 1.5, 1, False)
-        item_3 = Item('Banana', 1.23, 1, True)
+        item_3 = Item('Banana', 1.23, 3, True)
 
         self.shopping_list = [item_1, item_2, item_3]
 
@@ -18,3 +18,6 @@ class TestList(unittest.TestCase):
 
     def test_total_cost(self):
         self.assertEqual(3.73, total_cost(self.shopping_list))
+
+    def test_total_items(self):
+        self.assertEqual(6, total_items(self.shopping_list))
