@@ -16,7 +16,7 @@
             <p>
                 Quantity: {{item.quantity}}
                 <br>
-                Price: {{item.price}}
+                Price: {{'{:.2f}'.format(item.price * item.quantity)}}
                 <br> 
                 {% if item.bought %}
                     Bought: <span>&#9989;</span>
