@@ -1,4 +1,4 @@
-from Item import Item
+from models.item import Item
 
 item_1 = Item('Bran Flakes', 2.5, 2, False)
 item_2 = Item('Chocolate Orange', 1.0, 1, False)
