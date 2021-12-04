@@ -5,4 +5,4 @@ from models.Item import Item
 
 @app.route('/list')
 def index():
-    return render_template('index.html', title='List', list=shopping_list)
+    return render_template('index.html', title='All items', shopping_list=shopping_list)

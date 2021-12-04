@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping List - {{title}}</title>
+</head>
+<body>
+    
+    <h1>Shopping List</h1>
+
+        {% for item in shopping_list %}
+        <div id = 'item'>
+            <h3>{{item.name}}:</h3>
+            <p>
+                Quantity: {{item.quantity}}
+                <br>
+                Price: {{item.price}}
+                <br> 
+                {% if item.bought %}
+                    Bought: <span>&#9989;</span>
+                {% else %}
+                    Bought: <span>&#10060;</span>
+                {% endif %}
+            </p>
+        </div>
+        {% endfor %}
+</body>
+<footer>
+    <p>
+        <hr>Nothing else to buy
+    </p>
+</footer>
+</html>
