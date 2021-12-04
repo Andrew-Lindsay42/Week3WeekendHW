@@ -26,6 +26,23 @@
             </p>
         </div>
         {% endfor %}
+
+        <div id = "add_item">
+            <form action="/list" method="post">
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name">
+                <br>
+                <label for="price">Price</label>
+                <input type="number" name="price" id="price" step=0.01>
+                <br>
+                <label for="quantity">Quantity</label>
+                <input type="number" name="quantity" id="quantity">
+                <label for="bought">Bought?</label>
+                <input type="checkbox" name="bought" id="bought">
+                <input type="submit" value="Add item">
+
+                
+            </form>
 </body>
 <footer>
     <p>

@@ -5,3 +5,6 @@ item_2 = Item('Chocolate Orange', 1.0, 1, False)
 item_3 = Item('Washing-up Liquid', 1.99, 1, True)
 
 shopping_list = [item_1, item_2, item_3]
+
+def add_new_item(new_item):
+    shopping_list.append(new_item)
