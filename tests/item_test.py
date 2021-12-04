@@ -1,6 +1,6 @@
 import unittest
 
-from models.Item import Item
+from models.item import Item
 
 class TestItem(unittest.TestCase):
     def setUp(self):
