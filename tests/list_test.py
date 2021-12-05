@@ -16,8 +16,13 @@ class TestList(unittest.TestCase):
         add_new_item(self.shopping_list, grapes)
         self.assertEqual(4, len(self.shopping_list))
 
-    def test_total_cost(self):
-        self.assertEqual(3.73, total_cost(self.shopping_list))
+    def test_total_cost_no_discount(self):
+        self.assertEqual(7.19, total_cost(self.shopping_list))
+
+    def test_total_cost_discount(self):
+        plums = Item('Plums', 1, 5, False)
+        add_new_item(self.shopping_list, plums)
+        self.assertEqual(11.69, total_cost(self.shopping_list))
 
     def test_total_items(self):
         self.assertEqual(6, total_items(self.shopping_list))

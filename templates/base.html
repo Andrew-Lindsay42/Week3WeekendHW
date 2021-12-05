@@ -1,0 +1,37 @@
+<html>
+<head>
+    <title>Shopping List - {{title}}</title>
+</head>
+<body>
+    <h1>Shopping List</h1>
+    <aside>
+        <div id = 'show_items_form'>
+            <form action='/list/bought' method='post'>
+                <input type='submit' value='Show bought'>
+            </form>
+            <form action='/list/unbought' method='post'>
+                <input type='submit' value='Show unbought'>
+            </form>
+            <form action='/list/show_all' method='post'>
+                <input type='submit' value='Show all'>
+            </form>
+            <form action='/add_item'>
+                <input type='submit' value='Add item'>
+            </form>
+        </div>
+        <div id = 'list_details'>
+        Total cost: {{total_cost}}
+        <br>
+        Total items: {{total_items}} ({{unique_items}} unique)
+        </div>
+    </aside>
+    {% block content%}
+
+    {% endblock %}
+</body>
+<footer>
+    <p>
+        <hr>Nothing else to buy
+    </p>
+</footer>
+</html>

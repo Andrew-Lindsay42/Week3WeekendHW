@@ -8,7 +8,11 @@ from models.item import Item
 def index():
     return render_template('index.html', title='All items', shopping_list = shopping_list, total_cost = total_cost(shopping_list), total_items = total_items(shopping_list), unique_items = len(shopping_list))
 
-@app.route('/list', methods = ['POST'])
+@app.route('/add_item')
+def display_add_item():
+    return render_template('add_item.html', title='Add item', shopping_list=shopping_list)
+
+@app.route('/add_item', methods = ['POST'])
 def add_item():
     name = request.form['name']
     price = float(request.form['price'])
@@ -19,15 +23,15 @@ def add_item():
         bought = False
     new_item = Item(name, price, quantity, bought)
     add_new_item(shopping_list, new_item)
-    return render_template('index.html', title='All items', shopping_list=shopping_list)
+    return render_template('add_item.html', title='Add item', shopping_list=shopping_list, message='Item Added!')
 
 @app.route('/list/bought', methods = ['POST'])
 def show_bought_items():
-    return render_template('bought.html', title='Bought items', shopping_list=shopping_list)
+    return render_template('bought.html', title='Bought items', shopping_list=shopping_list, total_cost = total_cost(shopping_list), total_items = total_items(shopping_list), unique_items = len(shopping_list))
 
 @app.route('/list/unbought', methods = ['POST'])
 def show_unbought_items():
-    return render_template('unbought.html', title='Unbought items', shopping_list=shopping_list)
+    return render_template('unbought.html', title='Unbought items', shopping_list=shopping_list, total_cost = total_cost(shopping_list), total_items = total_items(shopping_list), unique_items = len(shopping_list))
 
 @app.route('/list/show_all', methods = ['POST'])
 def show_all():

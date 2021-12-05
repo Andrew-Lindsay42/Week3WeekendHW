@@ -13,6 +13,7 @@ def total_cost(current_list):
     total = 0
     for item in current_list:
         total += (item.price * item.quantity)
+    total = float('{:.2f}'.format(total))
     return total
 
 def total_items(current_list):

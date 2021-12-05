@@ -1,41 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shopping List - {{title}}</title>
-</head>
-<body>
-    <h1>Shopping List</h1>
-    <aside>
-        <div id = "show_items_form">
-            <form action="/list/bought" method="post">
-                <input type="submit" value="Show bought">
-            </form>
-            <form action="/list/unbought" method="post">
-                <input type="submit" value="Show unbought">
-            </form>
-            <form action="/list/show_all" method="post">
-                <input type="submit" value="Show all">
-            </form>
-        </div id = 'list_details'>
-        Total cost: {{total_cost}}
-        Total items: {{total_items}} ({{unique_items}} unique)
-        <div>
-
-        </div>
-    </aside>
-        {% for item in shopping_list %}
+{% extends 'base.html' %}
+    {% block content %}
+    
+    {% for item in shopping_list %}
         <div id = 'item'>
             <h3>{{item.name}}:</h3>
             <p>
                 Quantity: {{item.quantity}}
                 <br>
                 {% if item.quantity >= 5 %}
-                Price: {{'{:.2f}'.format(item.price * item.quantity)}} (includes 10% multi-buy discount)
+                    Price: {{'{:.2f}'.format(item.price * item.quantity)}} (includes 10% multi-buy discount)
                 {% else %}
-                Price: {{'{:.2f}'.format(item.price * item.quantity)}} 
+                    Price: {{'{:.2f}'.format(item.price * item.quantity)}} 
                 {% endif %}
                 <br> 
                 {% if item.bought %}
@@ -44,31 +19,10 @@
                     Bought: <span>&#10060;</span>
                 {% endif %}
             </p>
-            <form action='/list/delete/{{shopping_list.index(item)}}' method="post">
-                <input type="submit" value="Delete item">
+            <form action='/list/delete/{{shopping_list.index(item)}}' method='post'>
+                <input type='submit' value='Delete item'>
             </form>
         </div>
-        {% endfor %}
+    {% endfor %}
 
-        <div id = "add_item_form">
-            <form action="/list" method="post">
-                <label for="name">Name</label>
-                <input type="text" name="name" id="name">
-                <br>
-                <label for="price">Price</label>
-                <input type="number" name="price" id="price" step=0.01>
-                <br>
-                <label for="quantity">Quantity</label>
-                <input type="number" name="quantity" id="quantity">
-                <label for="bought">Bought?</label>
-                <input type="checkbox" name="bought" id="bought">
-                <input type="submit" value="Add item">
-            </form>
-        </div>
-</body>
-<footer>
-    <p>
-        <hr>Nothing else to buy
-    </p>
-</footer>
-</html>
+    {% endblock %}
