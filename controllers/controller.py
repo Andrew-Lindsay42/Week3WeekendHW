@@ -32,3 +32,8 @@ def show_unbought_items():
 @app.route('/list/show_all', methods = ['POST'])
 def show_all():
     return redirect ('/list')
+
+@app.route('/list/delete/<int:index>', methods = ['POST'])
+def delete_item(index):
+    shopping_list.pop(index)
+    return redirect ('/list')

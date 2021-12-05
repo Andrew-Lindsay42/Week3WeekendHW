@@ -44,6 +44,9 @@
                     Bought: <span>&#10060;</span>
                 {% endif %}
             </p>
+            <form action='/list/delete/{{shopping_list.index(item)}}' method="post">
+                <input type="submit" value="Delete item">
+            </form>
         </div>
         {% endfor %}
 
