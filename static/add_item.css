@@ -1,0 +1,33 @@
+#message {
+    color:darkred;
+    font-size: x-large;
+    animation: 4s fadeOut forwards;
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+#add_item_form {
+    text-align: center;
+    border: 2px outset hotpink;
+    border-radius: 10%;
+    margin: 1%;
+    padding: 2%;
+    width: fit-content
+}
+
+header {
+    border-bottom: 2px solid dimgray;
+    margin: 1%;
+}
+
+header > ul {
+    list-style: none;
+    text-align: right;
+}

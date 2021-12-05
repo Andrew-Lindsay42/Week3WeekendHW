@@ -1,33 +1,39 @@
 <html>
 <head>
     <title>Shopping List - {{title}}</title>
+    <link rel='stylesheet' href={{url_for('static', filename='/index.css')}}>
 </head>
-<body>
+<header>
     <h1>Shopping List</h1>
+</header>
+<body>
     <aside>
         <div id = 'show_items_form'>
+            <form action='/list/show_all' method='post'>
+                <input type='submit' value='Show all'>
+            </form>
             <form action='/list/bought' method='post'>
                 <input type='submit' value='Show bought'>
             </form>
             <form action='/list/unbought' method='post'>
                 <input type='submit' value='Show unbought'>
             </form>
-            <form action='/list/show_all' method='post'>
-                <input type='submit' value='Show all'>
-            </form>
             <form action='/add_item'>
-                <input type='submit' value='Add item'>
+                <input type='submit' value='New item'>
             </form>
         </div>
+        <br><br><br><br><br>
         <div id = 'list_details'>
         Total cost: {{total_cost}}
         <br>
         Total items: {{total_items}} ({{unique_items}} unique)
         </div>
     </aside>
+    <section>
     {% block content%}
 
     {% endblock %}
+    </section>
 </body>
 <footer>
     <p>

@@ -1,15 +1,17 @@
 <html>
 <head>
     <title>Shopping List - {{title}}</title>
+    <link rel='stylesheet' href={{url_for('static', filename='/add_item.css')}}>
 </head>
-<body>
+<header>
     <h1>New Item</h1>
     <ul>
         <li>
             <a href="/list">Back to list</a>
         </li>
     </ul>
-    
+</header>
+<body>
         <div id = 'add_item_form'>
             <form action='/add_item' method='post'>
                 <label for='name'>Name</label>

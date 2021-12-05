@@ -1,0 +1,25 @@
+header {
+    border-bottom: 2px solid dimgray;
+    margin: 1%;
+}
+
+body > aside {
+    margin: 2%;
+    padding: 1%;
+    float: left;
+    border-right: 2px solid dimgray;
+}
+
+body > section {
+    margin: 2%;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+#item {
+    text-align: center;
+    border: 2px outset hotpink;
+    border-radius: 10%;
+    margin: 1%;
+    padding: 2%
+}
