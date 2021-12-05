@@ -1,22 +1,24 @@
+from enum import unique
 from app import app
 from flask import render_template, request, redirect
-from models.shopping_list import shopping_list, add_new_item, total_cost, total_items, Item
+from models.shopping_list import shopping_list, add_new_item, total_cost, total_items
+from models.item import Item
 
 @app.route('/list')
 def index():
-    return render_template('index.html', title='All items', shopping_list=shopping_list, total_cost = total_cost(shopping_list), total_items = total_items(shopping_list))
+    return render_template('index.html', title='All items', shopping_list = shopping_list, total_cost = total_cost(shopping_list), total_items = total_items(shopping_list), unique_items = len(shopping_list))
 
 @app.route('/list', methods = ['POST'])
 def add_item():
     name = request.form['name']
     price = float(request.form['price'])
     quantity = int(request.form['quantity'])
-    if "bought" in request.form:
+    if 'bought' in request.form:
         bought = True
     else:
         bought = False
     new_item = Item(name, price, quantity, bought)
-    add_new_item(new_item)
+    add_new_item(shopping_list, new_item)
     return render_template('index.html', title='All items', shopping_list=shopping_list)
 
 @app.route('/list/bought', methods = ['POST'])

@@ -21,7 +21,7 @@
             </form>
         </div id = 'list_details'>
         Total cost: {{total_cost}}
-        Total items: {{total_items}}
+        Total items: {{total_items}} ({{unique_items}} unique)
         <div>
 
         </div>
@@ -32,7 +32,11 @@
             <p>
                 Quantity: {{item.quantity}}
                 <br>
-                Price: {{'{:.2f}'.format(item.price * item.quantity)}}
+                {% if item.quantity >= 5 %}
+                Price: {{'{:.2f}'.format(item.price * item.quantity)}} (includes 10% multi-buy discount)
+                {% else %}
+                Price: {{'{:.2f}'.format(item.price * item.quantity)}} 
+                {% endif %}
                 <br> 
                 {% if item.bought %}
                     Bought: <span>&#9989;</span>
