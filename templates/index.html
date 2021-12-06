@@ -8,10 +8,10 @@
                 Quantity: {{item.quantity}}
                 <br>
                 {% if item.quantity >= 5 %}
-                    Price: {{'{:.2f}'.format(item.price * item.quantity)}}
+                    Price: £{{'{:.2f}'.format(item.price * item.quantity)}}
                     <br> <small><i>(includes 10% multi-buy discount)</i></small>
                 {% else %}
-                    Price: {{'{:.2f}'.format(item.price * item.quantity)}} 
+                    Price: £{{'{:.2f}'.format(item.price * item.quantity)}} 
                 {% endif %}
                 <br> 
                 {% if item.bought %}
