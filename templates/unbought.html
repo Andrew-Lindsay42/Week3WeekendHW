@@ -16,6 +16,10 @@
                 {% endif %}
                 <br> 
                     Bought: <span>&#10060;</span>
+                    <br>
+                    <form action='/list/bought/{{shopping_list.index(item)}}' method = 'post'>
+                        <input type='submit' value='Mark as bought'>
+                    </form>
             </p>
             <form action='/list/delete/{{shopping_list.index(item)}}' method='post'>
                 <input type='submit' value='Delete item'>

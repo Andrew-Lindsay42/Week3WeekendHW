@@ -29,6 +29,12 @@ def add_item():
 def show_bought_items():
     return render_template('bought.html', title='Bought items', shopping_list=shopping_list, total_cost = total_cost(shopping_list), total_items = total_items(shopping_list), unique_items = len(shopping_list))
 
+@app.route('/list/bought/<int:index>', methods = ['POST'])
+def mark_as_bought(index):
+    item = shopping_list[index]
+    item.bought = True
+    return redirect ('/list')
+
 @app.route('/list/unbought', methods = ['POST'])
 def show_unbought_items():
     return render_template('unbought.html', title='Unbought items', shopping_list=shopping_list, total_cost = total_cost(shopping_list), total_items = total_items(shopping_list), unique_items = len(shopping_list))
